@@ -61,22 +61,3 @@ export default function RoundedButton({
     </GsapMagnetic>
   );
 }
-
-// import React from "react";
-// import styles from "./styles.module.scss";
-
-// const RoundedButton = ({ children, ...attributes }) => {
-//   return (
-//     <>
-//       <div className={styles.roundedButton}>
-//         {children}
-//         <div
-//           className={styles.circle}
-//           style={{ backgroundColor: "#455ce9" }}
-//         ></div>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default RoundedButton;

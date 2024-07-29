@@ -144,6 +144,7 @@
     justify-content: center;
     cursor: pointer;
     z-index: 2;
+    position: relative;
 
     .burger {
       width: 100%;
@@ -179,6 +180,24 @@
         top: 0px;
         transform: rotate(-45deg);
       }
+    }
+  }
+}
+
+@media (min-width: 430px) and (max-width: 530px) {
+  .headerButtonContainer {
+    .button {
+      width: 63px;
+      height: 63px;
+    }
+  }
+}
+
+@media (min-width: 200px) and (max-width: 429px) {
+  .headerButtonContainer {
+    .button {
+      width: 53px;
+      height: 53px;
     }
   }
 }

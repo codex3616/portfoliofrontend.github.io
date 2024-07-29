@@ -5,7 +5,8 @@
   padding-right: 200px;
   flex-direction: column;
   margin-top: 200px;
-  // margin-bottom: 200px;
+  position: relative;
+  margin-bottom: 200px;
 
   .body {
     max-width: 1400px;
@@ -27,9 +28,12 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    position: absolute;
+    bottom: -5rem;
     p {
       // border: 2px solid red;
       z-index: 2;
+      position: relative;
     }
     sup {
       vertical-align: super;
