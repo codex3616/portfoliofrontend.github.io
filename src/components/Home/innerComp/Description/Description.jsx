@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import styles from "./styles.module.scss";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { opacity, slideUp } from "./anim";
-import GsapMagnetic from "../../../Layout/MagneticBtn/GsapMagnetic";
+import RoundedButton from "../../../Layout/RoundedButton/RoundedButton";
 
 const Description = () => {
   const container = useRef(null);
@@ -19,7 +19,7 @@ const Description = () => {
 
   // ####################### Done
   const phrase =
-    "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem rerum non, delectus pariatur similique vitae eius! Minima cum voluptatem tempora!";
+    "Ambitious Software Developer with a strong MERN stack foundation, completed B.Tech with an 8.0 CGPA. ";
 
   return (
     <>
@@ -46,14 +46,14 @@ const Description = () => {
             initial="initial"
             animate={isInView ? "open" : "closed"}
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde vitae
-            sapiente a ab. Lorem ipsum dolor sit amet.
+            The combination of my passion for design, code & interaction
+            positions me in a unique place in the web design world.
           </motion.p>
           <div>
             <motion.div style={{ y: sm }} className={styles.buttonContainer}>
-              <GsapMagnetic>
-                <p className={styles.button}>About me</p>
-              </GsapMagnetic>
+              <RoundedButton className={styles.button}>
+                <p>About me</p>
+              </RoundedButton>
             </motion.div>
           </div>
         </div>

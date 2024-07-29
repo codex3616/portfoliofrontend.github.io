@@ -1,7 +1,8 @@
 import React from "react";
 import { useEffect, useRef } from "react";
-import styles from "./styles.modules.scss";
+import styles from "./styles.module.scss";
 import gsap from "gsap";
+import GsapMagnetic from "../MagneticBtn/GsapMagnetic";
 
 export default function RoundedButton({
   children,
@@ -38,23 +39,44 @@ export default function RoundedButton({
   };
 
   return (
-    <div
-      className={styles.roundedButton}
-      style={{ overflow: "hidden" }}
-      onMouseEnter={() => {
-        manageMouseEnter();
-      }}
-      onMouseLeave={() => {
-        manageMouseLeave();
-      }}
-      {...attributes}
-    >
-      {children}
+    <GsapMagnetic>
       <div
-        ref={circle}
-        style={{ backgroundColor }}
-        className={styles.circle}
-      ></div>
-    </div>
+        className={styles.roundedButton}
+        style={{ overflow: "hidden" }}
+        onMouseEnter={() => {
+          manageMouseEnter();
+        }}
+        onMouseLeave={() => {
+          manageMouseLeave();
+        }}
+        {...attributes}
+      >
+        {children}
+        <div
+          ref={circle}
+          style={{ backgroundColor }}
+          className={styles.circle}
+        ></div>
+      </div>
+    </GsapMagnetic>
   );
 }
+
+// import React from "react";
+// import styles from "./styles.module.scss";
+
+// const RoundedButton = ({ children, ...attributes }) => {
+//   return (
+//     <>
+//       <div className={styles.roundedButton}>
+//         {children}
+//         <div
+//           className={styles.circle}
+//           style={{ backgroundColor: "#455ce9" }}
+//         ></div>
+//       </div>
+//     </>
+//   );
+// };
+
+// export default RoundedButton;

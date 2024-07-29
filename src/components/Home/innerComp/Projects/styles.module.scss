@@ -18,12 +18,19 @@
   }
 
   .btn {
-    border: 1px solid rgb(201, 201, 201);
+    background-color: #141517;
     border-radius: 10rem;
-    padding: 1.2rem 1.7rem;
-    padding-top: 1rem;
+    color: white;
+    height: 60px;
+    width: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-
+    p {
+      // border: 2px solid red;
+      z-index: 2;
+    }
     sup {
       vertical-align: super;
     }

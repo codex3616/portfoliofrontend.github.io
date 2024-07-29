@@ -3,7 +3,7 @@ import styles from "./styles.module.scss";
 import SingleProject from "./singleProject/SingleProject";
 import { motion } from "framer-motion";
 import gsap from "gsap";
-import GsapMagnetic from "../../../Layout/MagneticBtn/GsapMagnetic";
+import RoundedButton from "../../../Layout/RoundedButton/RoundedButton";
 import BurgerZest from "../../../../images/burgerZest.png";
 import LoginApp from "../../../../images/login.png";
 import NoteTaking from "../../../../images/noteWave.png";
@@ -127,11 +127,11 @@ const Projects = () => {
             );
           })}
         </div>
-        <GsapMagnetic>
-          <p className={styles.btn}>
+        <RoundedButton className={styles.btn}>
+          <p>
             More work <sup>2</sup>
           </p>
-        </GsapMagnetic>
+        </RoundedButton>
         <motion.div
           ref={modalContainer}
           variants={scaleAnimation}

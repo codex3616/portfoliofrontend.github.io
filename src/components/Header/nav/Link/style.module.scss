@@ -4,11 +4,21 @@
   align-items: center;
 
   .indicator {
-    width: 11px;
-    height: 11px;
+    width: 10px;
+    height: 10px;
     background-color: #ffffff;
     border-radius: 50%;
     position: absolute;
     left: -40px;
   }
 }
+
+// @media (max-width: 470px) {
+//   .link {
+//     .indicator {
+//       width: 10px;
+//       height: 10px;
+//       right: 10px;
+//     }
+//   }
+// }

@@ -4,6 +4,7 @@ import logo from "../../../images/finial.webp";
 import { GoArrowDownLeft } from "react-icons/go";
 import { useScroll, motion, useTransform, useSpring } from "framer-motion";
 import GsapMagnetic from "../MagneticBtn/GsapMagnetic";
+import RoundedButton from "../RoundedButton/RoundedButton";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -34,21 +35,21 @@ export default function Footer() {
           </span>
           <h2 className={styles.together}>together</h2>
           <motion.div style={{ x: x }} className={styles.buttonContainer}>
-            <GsapMagnetic>
-              <p className={styles.button}>Get in touch</p>
-            </GsapMagnetic>
+            <RoundedButton className={styles.button} backgroundColor="#3c54ea">
+              <p>Get in touch</p>
+            </RoundedButton>
           </motion.div>
 
           <GoArrowDownLeft />
         </motion.div>
         <div className={styles.nav}>
-          <GsapMagnetic>
+          <RoundedButton>
             <p>singhakash1922@gmail.com</p>
-          </GsapMagnetic>
+          </RoundedButton>
 
-          <GsapMagnetic>
+          <RoundedButton>
             <p>+91 96 25 01 67 58</p>
-          </GsapMagnetic>
+          </RoundedButton>
         </div>
         <div className={styles.info}>
           <div>

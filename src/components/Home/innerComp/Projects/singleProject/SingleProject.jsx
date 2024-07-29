@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./style.module.scss";
+import styles from "./styles.module.scss";
 
 const SingleProject = ({ index, title, manageModal }) => {
   return (

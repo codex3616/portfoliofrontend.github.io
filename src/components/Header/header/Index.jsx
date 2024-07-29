@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import GsapMagnetic from "../../Layout/MagneticBtn/GsapMagnetic";
+import RoundedButton from "../../Layout/RoundedButton/RoundedButton";
 
 const Index = () => {
   const [isActive, setIsActive] = useState(false);
@@ -18,7 +19,7 @@ const Index = () => {
       scrollTrigger: {
         trigger: document.documentElement,
         start: 0,
-        end: window.innerHeight / 2, // when to appear burger cross..
+        end: window.innerHeight / 2 / 2 / 2, // when to appear burger cross..
         onLeave: () => {
           gsap.to(burger.current, {
             scale: 1,
@@ -80,20 +81,19 @@ const Index = () => {
       </div>
 
       <div ref={burger} className={styles.headerButtonContainer}>
-        <GsapMagnetic>
+        <RoundedButton
+          onClick={() => {
+            setIsActive(!isActive);
+          }}
+          className={styles.button}
+          backgroundColor="#455ce9"
+        >
           <div
-            onClick={() => {
-              setIsActive(!isActive);
-            }}
-            className={styles.button}
-          >
-            <div
-              className={`${styles.burger} ${
-                isActive ? styles.burgerActive : ""
-              }`}
-            ></div>
-          </div>
-        </GsapMagnetic>
+            className={`${styles.burger} ${
+              isActive ? styles.burgerActive : ""
+            }`}
+          ></div>
+        </RoundedButton>
       </div>
       <AnimatePresence mode="wait">
         {isActive && <Nav setIsActive={setIsActive} isActive={isActive} />}
