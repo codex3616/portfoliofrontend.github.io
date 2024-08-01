@@ -12,13 +12,17 @@ import python from "./img/python.JPG";
 // import arduino from "./img/arduino.JPG";
 // import css from "./img/css.JPG";
 // import cPlusPlus from "./img/c++.JPG";
-// import html from "./img/html.JPG";
+import html from "./img/html.JPG";
 // import bootstrap from "./img/bootstrap.JPG";
-// import sass from "./img/sass.JPG";
+import sass from "./img/sass.JPG";
 // import talwind from "./img/talwind.JPG";
 // import ui from "./img/ui.JPG";
 
 const slider1 = [
+  {
+    color: "black",
+    src: html,
+  },
   {
     color: "#e3e5e7",
     src: reactImg,
@@ -39,6 +43,10 @@ const slider1 = [
 ];
 
 const slider2 = [
+  {
+    color: "#d4h7h3",
+    src: sass,
+  },
   {
     color: "#d4e3ec",
     src: nodeImg,

@@ -46,6 +46,7 @@ export default function Footer() {
           <RoundedButton>
             <p>singhakash1922@gmail.com</p>
           </RoundedButton>
+          <div className={styles.space}></div>
 
           <RoundedButton>
             <p>+91 96 25 01 67 58</p>
@@ -81,6 +82,7 @@ export default function Footer() {
                 href="https://www.instagram.com/aarush_singh_999?igsh=MTA3c2h1bm11cXZmaQ%3D%3D&utm_source=qr"
                 target="_blank"
                 rel="noreferrer"
+                className={styles.insta}
               >
                 Instagram
               </a>

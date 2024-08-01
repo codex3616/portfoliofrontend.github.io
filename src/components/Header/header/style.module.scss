@@ -1,5 +1,4 @@
 .header {
-  // border: 2px solid red;
   position: absolute;
   top: 0;
   color: white;
@@ -11,7 +10,6 @@
   box-sizing: border-box;
   align-items: center;
   width: 100%;
-  // border: 2px solid red;
 
   .logo {
     display: flex;
@@ -94,6 +92,10 @@
       z-index: 1;
       padding: 15px;
       cursor: pointer;
+
+      .menu {
+        display: none;
+      }
 
       &:hover {
         .indicator {
@@ -184,7 +186,7 @@
   }
 }
 
-@media (min-width: 430px) and (max-width: 530px) {
+@media (min-width: 430px) and (max-width: 600px) {
   .headerButtonContainer {
     .button {
       width: 63px;
@@ -193,11 +195,137 @@
   }
 }
 
-@media (min-width: 200px) and (max-width: 429px) {
+@media (min-width: 160px) and (max-width: 429px) {
   .headerButtonContainer {
     .button {
       width: 53px;
       height: 53px;
+      margin-right: 26px !important;
+    }
+  }
+  .header {
+    padding: 35px 20px;
+
+    .logo {
+      p {
+        font-size: 14px !important;
+      }
+
+      .copyright {
+        transition: none;
+        font-size: 10px !important;
+      }
+      .name {
+        a {
+          transition: none;
+          margin-left: 3px;
+        }
+        .singh {
+          display: none;
+        }
+      }
+
+      &:hover {
+        .name {
+          .copyright {
+            transform: none;
+          }
+          a {
+            padding-left: 0px;
+
+            .codeBy {
+              transform: none;
+            }
+            .akash {
+              transform: none;
+            }
+
+            .singh {
+              transform: none;
+            }
+          }
+        }
+      }
+    }
+    .nav {
+      .el {
+        .menu {
+          font-size: 14px;
+        }
+        .menuIndicator {
+          position: absolute;
+          width: 5px !important;
+          height: 5px !important;
+          top: 21px !important;
+          left: 1px !important;
+          background-color: red;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 150px) and (max-width: 600px) {
+  .header {
+    .logo {
+      p {
+        font-size: 1rem;
+      }
+    }
+    .nav {
+      .el {
+        a {
+          display: none;
+        }
+        .indicator {
+          display: none;
+        }
+        .menu {
+          display: block;
+        }
+
+        .menuIndicator {
+          position: absolute;
+          width: 6px;
+          height: 6px;
+          top: 23px;
+          left: -1px;
+          background-color: black;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 200px) and (max-width: 319px) {
+  .header {
+    padding: 29px 10px;
+
+    .logo {
+      .copyright {
+        font-size: 9px;
+      }
+    }
+
+    .menu {
+      // border: 2px solid blue;
+      margin-left: -25px;
+    }
+
+    .nav {
+      .el {
+        .menuIndicator {
+          position: absolute;
+          width: 5px;
+          height: 5px;
+          top: 21px !important;
+          left: -20px !important;
+          background-color: black;
+          border-radius: 50%;
+        }
+      }
     }
   }
 }

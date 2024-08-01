@@ -9,8 +9,12 @@
     display: flex;
     position: relative;
     gap: 3vw;
-    width: 120vw;
+    width: 150vw;
     left: -10vw;
+
+    &:nth-of-type(2) {
+      left: -5vw;
+    }
 
     // overflow: hidden;
     .skills {
@@ -56,6 +60,67 @@
       background-color: white;
       border-radius: 0 0 50% 50%;
       z-index: 1;
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .slidingImages {
+    border: 2px solid red;
+
+    .slider {
+      border: 2px solid blue;
+      width: 180vw;
+      left: -22vw;
+
+      &:nth-of-type(2) {
+        left: -8vw;
+      }
+
+      .skills {
+        border: 2px solid green;
+        width: 30% !important;
+        height: 22vw;
+
+        .imageContainer {
+          border: 2px solid black;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 520px) {
+  .slidingImages {
+    .slider {
+      width: 190vw;
+      left: -40vw;
+
+      &:nth-of-type(2) {
+        left: -13vw;
+      }
+
+      .skills {
+        width: 30% !important;
+        height: 25vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 390px) {
+  .slidingImages {
+    .slider {
+      width: 200vw;
+      left: -60vw;
+
+      &:nth-of-type(2) {
+        left: -13vw;
+      }
+
+      .skills {
+        width: 35% !important;
+        height: 25vw;
+      }
     }
   }
 }

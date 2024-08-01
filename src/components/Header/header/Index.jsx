@@ -11,6 +11,8 @@ import RoundedButton from "../../Layout/RoundedButton/RoundedButton";
 
 const Index = () => {
   const [isActive, setIsActive] = useState(false);
+  const [isBurgerVisible, setIsBurgerVisible] = useState(false); // New state variable
+  const [menuIsVisible, setMenuIsVisible] = useState(true);
   const burger = useRef(null);
 
   useLayoutEffect(() => {
@@ -21,22 +23,46 @@ const Index = () => {
         start: 0,
         end: window.innerHeight / 2 / 2 / 2, // when to appear burger cross..
         onLeave: () => {
+          setIsBurgerVisible(true);
           gsap.to(burger.current, {
             scale: 1,
-            duration: 0.25,
+            duration: 0.45,
             ease: "power1.out",
           });
         },
         onEnterBack: () => {
+          setIsBurgerVisible(false);
           gsap.to(burger.current, {
             scale: 0,
-            duration: 0.25,
+            duration: 0.45,
             ease: "power1.out",
           });
         },
       },
     });
   }, []);
+
+  const toggleMenu = () => {
+    setMenuIsVisible(false);
+    setIsActive(!isActive);
+    gsap.to(burger.current, {
+      scale: 1,
+      duration: 0.45,
+      ease: "power1.out",
+    });
+  };
+
+  const toggleBurger = () => {
+    setIsActive(!isActive);
+    if (!isBurgerVisible) {
+      setMenuIsVisible(true);
+      gsap.to(burger.current, {
+        scale: 0,
+        duration: 0.65,
+        ease: "power1.out",
+      });
+    }
+  };
 
   return (
     <>
@@ -77,14 +103,27 @@ const Index = () => {
               <div className={styles.indicator}></div>
             </div>
           </GsapMagnetic>
+
+          <GsapMagnetic>
+            <div
+              className={styles.el}
+              style={{ opacity: menuIsVisible ? "1" : "0" }}
+            >
+              <Link
+                onClick={toggleMenu} // Updated onClick handler
+                className={styles.menu}
+              >
+                Menu
+              </Link>
+              <div className={styles.menuIndicator}></div>
+            </div>
+          </GsapMagnetic>
         </div>
       </div>
 
       <div ref={burger} className={styles.headerButtonContainer}>
         <RoundedButton
-          onClick={() => {
-            setIsActive(!isActive);
-          }}
+          onClick={toggleBurger} // Updated onClick handler
           className={styles.button}
           backgroundColor="#455ce9"
         >
