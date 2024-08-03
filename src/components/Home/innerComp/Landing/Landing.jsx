@@ -5,6 +5,16 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import img from "../../../../images/finial.jpeg";
 import { motion, useScroll, useTransform } from "framer-motion";
 
+const slideUp = {
+  initial: {
+    y: 300,
+  },
+  enter: {
+    y: 0,
+    transition: { duration: 0.6, ease: [0.33, 1, 0.68, 1], delay: 2.5 },
+  },
+};
+
 const Landing = () => {
   const container = useRef(null);
   const firstText = useRef(null);
@@ -68,9 +78,9 @@ const Landing = () => {
   return (
     <>
       <motion.main
-        // variants={slideUp}
-        // initial="initial"
-        // animate="enter"
+        variants={slideUp}
+        initial="initial"
+        animate="enter"
         ref={container}
         className={styles.landing}
       >

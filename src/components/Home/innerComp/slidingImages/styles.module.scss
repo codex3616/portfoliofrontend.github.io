@@ -66,10 +66,7 @@
 
 @media (max-width: 720px) {
   .slidingImages {
-    border: 2px solid red;
-
     .slider {
-      border: 2px solid blue;
       width: 180vw;
       left: -22vw;
 
@@ -78,13 +75,8 @@
       }
 
       .skills {
-        border: 2px solid green;
         width: 30% !important;
         height: 22vw;
-
-        .imageContainer {
-          border: 2px solid black;
-        }
       }
     }
   }

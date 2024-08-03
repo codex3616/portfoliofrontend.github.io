@@ -52,6 +52,7 @@ const projectList = [
 
 const Projects = () => {
   const [modal, setModal] = useState({ active: false, index: 0 });
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth); // added
   const { active, index } = modal;
   const modalContainer = useRef(null);
   const cursor = useRef(null);
@@ -65,15 +66,31 @@ const Projects = () => {
   let yMoveCursorLabel = useRef(null);
 
   useEffect(() => {
-    //Move Container
-    xMoveContainer.current = gsap.quickTo(modalContainer.current, "left", {
-      duration: 0.8,
-      ease: "power3",
-    });
-    yMoveContainer.current = gsap.quickTo(modalContainer.current, "top", {
-      duration: 0.8,
-      ease: "power3",
-    });
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    // Cleanup listener on unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (windowWidth > 720) {
+      //Move Container
+      xMoveContainer.current = gsap.quickTo(modalContainer.current, "left", {
+        duration: 0.8,
+        ease: "power3",
+      });
+      yMoveContainer.current = gsap.quickTo(modalContainer.current, "top", {
+        duration: 0.8,
+        ease: "power3",
+      });
+    }
     //Move cursor
     xMoveCursor.current = gsap.quickTo(cursor.current, "left", {
       duration: 0.5,
@@ -92,11 +109,14 @@ const Projects = () => {
       duration: 0.45,
       ease: "power3",
     });
-  }, []);
+  }, [windowWidth]);
 
   const moveItems = (x, y) => {
-    xMoveContainer.current(x);
-    yMoveContainer.current(y);
+    if (windowWidth > 720) {
+      xMoveContainer.current(x);
+      yMoveContainer.current(y);
+    }
+
     xMoveCursor.current(x);
     yMoveCursor.current(y);
     xMoveCursorLabel.current(x);
@@ -106,6 +126,8 @@ const Projects = () => {
     moveItems(x, y);
     setModal({ active, index });
   };
+  const limitedProjectList =
+    windowWidth < 720 ? projectList.slice(0, 2) : projectList;
 
   return (
     <>
@@ -116,11 +138,13 @@ const Projects = () => {
         className={styles.projects}
       >
         <div className={styles.body}>
-          {projectList.map((project, index) => {
+          {limitedProjectList.map((project, index) => {
             return (
               <SingleProject
                 index={index}
                 title={project.title}
+                color={project.color}
+                src={project.src}
                 manageModal={manageModal}
                 key={index}
               />

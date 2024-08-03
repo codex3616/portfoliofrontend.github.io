@@ -1,8 +1,8 @@
 .projects {
   display: flex;
   align-items: center;
-  padding-left: 200px;
-  padding-right: 200px;
+  padding-left: 100px;
+  padding-right: 100px;
   flex-direction: column;
   margin-top: 200px;
   position: relative;
@@ -92,5 +92,67 @@
 
   .cursorLabel {
     background-color: transparent;
+  }
+}
+
+@media (max-width: 1115px) {
+  .projects {
+    padding-left: 100px;
+    padding-right: 100px;
+
+    .modalContainer {
+      height: 300px;
+      width: 350px;
+    }
+  }
+}
+@media (max-width: 855px) {
+  .projects {
+    padding-left: 70px;
+    padding-right: 70px;
+
+    .modalContainer {
+      height: 250px;
+      width: 300px;
+    }
+
+    .cursor,
+    .cursorLabel {
+      width: 70px;
+      height: 70px;
+    }
+  }
+}
+
+@media (max-width: 719px) {
+  .projects {
+    padding-left: 0px;
+    padding-right: 0px;
+
+    .cursor,
+    .cursorLabel {
+      width: 80px !important;
+      height: 80px !important;
+    }
+
+    .modalContainer {
+      height: 50px !important;
+      position: static !important;
+      transform: none !important;
+      top: auto !important;
+      left: auto !important;
+      pointer-events: auto !important;
+      display: flex;
+      justify-content: space-between;
+      justify-content: center;
+      align-items: center;
+      display: none !important;
+    }
+  }
+}
+@media (max-width: 481px) {
+  .projects {
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
