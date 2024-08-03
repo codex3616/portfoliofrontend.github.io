@@ -25,7 +25,12 @@ const navItems = [
     href: "/contact",
   },
 ];
-const Index = ({ setIsActive, isActive, setMenuIsVisible }) => {
+const Index = ({
+  setIsActive,
+  isActive,
+  setMenuIsVisible,
+  setIsBurgerVisible,
+}) => {
   const location = useLocation();
   const pathname = location.pathname;
 
@@ -58,6 +63,7 @@ const Index = ({ setIsActive, isActive, setMenuIsVisible }) => {
                 activeIndicator={selectedIndicator === item.href}
                 setSelectedIndicator={setSelectedIndicator}
                 setMenuIsVisible={setMenuIsVisible}
+                setIsBurgerVisible={setIsBurgerVisible}
               />
             );
           })}

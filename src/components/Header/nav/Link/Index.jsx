@@ -10,6 +10,7 @@ const Index = ({
   activeIndicator,
   setSelectedIndicator,
   setMenuIsVisible,
+  setIsBurgerVisible,
 }) => {
   // console.log(activeIndicator);
   return (
@@ -34,6 +35,7 @@ const Index = ({
         <Link
           to={data.href}
           onClick={() => {
+            setIsBurgerVisible(false);
             setMenuIsVisible(true);
             data.setIsActive(!data.isActive);
           }}

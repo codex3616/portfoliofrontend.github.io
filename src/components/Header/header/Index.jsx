@@ -17,6 +17,13 @@ const Index = () => {
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+    if (isBurgerVisible === false) {
+      gsap.to(burger.current, {
+        scale: 0,
+        duration: 0.65,
+        ease: "power1.out",
+      });
+    }
     gsap.to(burger.current, {
       scrollTrigger: {
         trigger: document.documentElement,
@@ -40,9 +47,10 @@ const Index = () => {
         },
       },
     });
-  }, []);
+  }, [isBurgerVisible]);
 
   const toggleMenu = () => {
+    setIsBurgerVisible(true);
     setMenuIsVisible(false);
     setIsActive(!isActive);
     gsap.to(burger.current, {
@@ -54,7 +62,7 @@ const Index = () => {
 
   const toggleBurger = () => {
     setIsActive(!isActive);
-    if (!isBurgerVisible) {
+    if (!menuIsVisible) {
       setMenuIsVisible(true);
       gsap.to(burger.current, {
         scale: 0,
@@ -140,6 +148,7 @@ const Index = () => {
             setIsActive={setIsActive}
             isActive={isActive}
             setMenuIsVisible={setMenuIsVisible}
+            setIsBurgerVisible={setIsBurgerVisible}
           />
         )}
       </AnimatePresence>
