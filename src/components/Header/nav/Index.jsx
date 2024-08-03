@@ -25,7 +25,7 @@ const navItems = [
     href: "/contact",
   },
 ];
-const Index = ({ setIsActive, isActive }) => {
+const Index = ({ setIsActive, isActive, setMenuIsVisible }) => {
   const location = useLocation();
   const pathname = location.pathname;
 
@@ -57,6 +57,7 @@ const Index = ({ setIsActive, isActive }) => {
                 data={{ ...item, index, isActive, setIsActive }}
                 activeIndicator={selectedIndicator === item.href}
                 setSelectedIndicator={setSelectedIndicator}
+                setMenuIsVisible={setMenuIsVisible}
               />
             );
           })}

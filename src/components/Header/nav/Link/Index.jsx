@@ -5,7 +5,12 @@ import { motion } from "framer-motion";
 import { slide, scale } from "../../header/anim";
 import GsapMagnetic from "../../../Layout/MagneticBtn/GsapMagnetic";
 
-const Index = ({ data, activeIndicator, setSelectedIndicator }) => {
+const Index = ({
+  data,
+  activeIndicator,
+  setSelectedIndicator,
+  setMenuIsVisible,
+}) => {
   // console.log(activeIndicator);
   return (
     <motion.div
@@ -29,6 +34,7 @@ const Index = ({ data, activeIndicator, setSelectedIndicator }) => {
         <Link
           to={data.href}
           onClick={() => {
+            setMenuIsVisible(true);
             data.setIsActive(!data.isActive);
           }}
         >

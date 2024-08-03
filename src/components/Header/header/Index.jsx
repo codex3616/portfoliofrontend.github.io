@@ -135,7 +135,13 @@ const Index = () => {
         </RoundedButton>
       </div>
       <AnimatePresence mode="wait">
-        {isActive && <Nav setIsActive={setIsActive} isActive={isActive} />}
+        {isActive && (
+          <Nav
+            setIsActive={setIsActive}
+            isActive={isActive}
+            setMenuIsVisible={setMenuIsVisible}
+          />
+        )}
       </AnimatePresence>
     </>
   );
