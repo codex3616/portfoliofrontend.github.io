@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { opacity, slideUp } from "./anim";
 import RoundedButton from "../../../Layout/RoundedButton/RoundedButton";
+import { Link } from "react-router-dom";
 
 const Description = () => {
   const container = useRef(null);
@@ -52,7 +53,9 @@ const Description = () => {
           <div>
             <motion.div style={{ y: sm }} className={styles.buttonContainer}>
               <RoundedButton className={styles.button}>
-                <p>About me</p>
+                <Link to="/about">
+                  <p>About me</p>
+                </Link>
               </RoundedButton>
             </motion.div>
           </div>

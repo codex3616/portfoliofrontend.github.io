@@ -91,24 +91,26 @@ const Projects = () => {
         ease: "power3",
       });
     }
-    //Move cursor
-    xMoveCursor.current = gsap.quickTo(cursor.current, "left", {
-      duration: 0.5,
-      ease: "power3",
-    });
-    yMoveCursor.current = gsap.quickTo(cursor.current, "top", {
-      duration: 0.5,
-      ease: "power3",
-    });
-    //Move cursor label
-    xMoveCursorLabel.current = gsap.quickTo(cursorLabel.current, "left", {
-      duration: 0.45,
-      ease: "power3",
-    });
-    yMoveCursorLabel.current = gsap.quickTo(cursorLabel.current, "top", {
-      duration: 0.45,
-      ease: "power3",
-    });
+    if (windowWidth > 420) {
+      //Move cursor
+      xMoveCursor.current = gsap.quickTo(cursor.current, "left", {
+        duration: 0.5,
+        ease: "power3",
+      });
+      yMoveCursor.current = gsap.quickTo(cursor.current, "top", {
+        duration: 0.5,
+        ease: "power3",
+      });
+      //Move cursor label
+      xMoveCursorLabel.current = gsap.quickTo(cursorLabel.current, "left", {
+        duration: 0.45,
+        ease: "power3",
+      });
+      yMoveCursorLabel.current = gsap.quickTo(cursorLabel.current, "top", {
+        duration: 0.45,
+        ease: "power3",
+      });
+    }
   }, [windowWidth]);
 
   const moveItems = (x, y) => {
@@ -116,11 +118,13 @@ const Projects = () => {
       xMoveContainer.current(x);
       yMoveContainer.current(y);
     }
+    if (windowWidth > 420) {
+      xMoveCursor.current(x);
+      yMoveCursor.current(y);
+      xMoveCursorLabel.current(x);
 
-    xMoveCursor.current(x);
-    yMoveCursor.current(y);
-    xMoveCursorLabel.current(x);
-    yMoveCursorLabel.current(y);
+      yMoveCursorLabel.current(y);
+    }
   };
   const manageModal = (active, index, x, y) => {
     moveItems(x, y);

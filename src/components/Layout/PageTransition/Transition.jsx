@@ -1,30 +1,21 @@
-import React from "react";
-import styles from "./styles.module.scss";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import styles from "./styles.module.scss";
+import { usePathname } from "./PathnameContext";
 
-const anim = (variants) => {
-  return {
-    variants,
-    initial: "initial",
-    animate: "enter",
-    exit: "exit",
-  };
-};
-
-// const routes = {
-//   "/": "Home",
-//   "/about": "About",
-//   "/contact": "Contact",
-//   "/work": "work",
-// };
+const anim = (variants) => ({
+  variants,
+  initial: "initial",
+  animate: "enter",
+  exit: "exit",
+});
 
 const Curve = (props) => {
-  const pathname = window.location.pathname;
+  const pathname = usePathname();
 
   const [dimensions, setDimensions] = useState({
-    height: null,
-    width: null,
+    height: window.innerHeight,
+    width: window.innerWidth,
   });
 
   useEffect(() => {
@@ -35,13 +26,11 @@ const Curve = (props) => {
       });
     };
 
-    resize();
-
     window.addEventListener("resize", resize);
     return () => window.removeEventListener("resize", resize);
   }, []);
 
-  // text
+  // text animation variants
   const text = {
     initial: {
       opacity: 1,
@@ -68,43 +57,39 @@ const Curve = (props) => {
       },
     },
   };
-  // text done
 
   return (
-    <>
-      <div className={styles.curve}>
-        <div
-          className={styles.background}
-          style={{ opacity: dimensions.width == null ? 1 : 0 }}
-        />
-        <motion.p {...anim(text)} className={styles.routeName}>
-          <div className={styles.indicator}></div>
-          {pathname.slice(1)}
-        </motion.p>
-        {dimensions.width != null && <SVG {...dimensions} />}
-        {props.children}
-      </div>
-    </>
+    <div className={styles.curve}>
+      <div
+        className={styles.background}
+        style={{ opacity: dimensions.width == null ? 1 : 0 }}
+      />
+      <motion.p {...anim(text)} className={styles.routeName}>
+        <div className={styles.indicator}></div>
+        {pathname.slice(1)}
+      </motion.p>
+      {dimensions.width != null && <SVG {...dimensions} />}
+      {props.children}
+    </div>
   );
 };
 
-// creating SVG
-
+// SVG Component
 const SVG = ({ height, width }) => {
   const initialPath = `
-  M0 300
-  Q${width / 2} 0 ${width} 300
-  L${width} ${height + 300}
-  Q${width / 2} ${height + 600} 0 ${height + 300}
-  L0 300
+    M0 300
+    Q${width / 2} 0 ${width} 300
+    L${width} ${height + 300}
+    Q${width / 2} ${height + 600} 0 ${height + 300}
+    L0 300
   `;
 
   const targetPath = `
-  M0 300
-  Q${width / 2} 0 ${width} 300
-  L${width} ${height}
-  Q${width / 2} ${height} 0 ${height}
-  L0 300
+    M0 300
+    Q${width / 2} 0 ${width} 300
+    L${width} ${height}
+    Q${width / 2} ${height} 0 ${height}
+    L0 300
   `;
 
   const curve = {
@@ -143,7 +128,6 @@ const SVG = ({ height, width }) => {
         top: "100vh",
       },
     },
-
     exit: {
       top: "-300px",
       transition: {
@@ -159,7 +143,5 @@ const SVG = ({ height, width }) => {
     </motion.svg>
   );
 };
-
-// SVG DONE
 
 export default Curve;

@@ -5,6 +5,7 @@ import { GoArrowDownLeft } from "react-icons/go";
 import { useScroll, motion, useTransform } from "framer-motion";
 import GsapMagnetic from "../MagneticBtn/GsapMagnetic";
 import RoundedButton from "../RoundedButton/RoundedButton";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -36,7 +37,9 @@ export default function Footer() {
           <h2 className={styles.together}>together</h2>
           <motion.div style={{ x: x }} className={styles.buttonContainer}>
             <RoundedButton className={styles.button} backgroundColor="#3c54ea">
-              <p>Get in touch</p>
+              <Link to="/contact">
+                <p>Get in touch</p>
+              </Link>
             </RoundedButton>
           </motion.div>
 
