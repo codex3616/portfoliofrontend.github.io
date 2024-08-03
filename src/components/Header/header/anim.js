@@ -1,5 +1,3 @@
-import { delay } from "framer-motion";
-
 export const menuSlide = {
   initial: {
     x: "calc(100% + 100px)",

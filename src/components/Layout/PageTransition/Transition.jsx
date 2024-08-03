@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./styles.module.scss";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 
 const anim = (variants) => {
   return {
@@ -21,11 +20,7 @@ const anim = (variants) => {
 // };
 
 const Curve = (props) => {
-  const location = useLocation();
-  // const path = location.pathname;
-
   const pathname = window.location.pathname;
-  // console.log(pathname);
 
   const [dimensions, setDimensions] = useState({
     height: null,

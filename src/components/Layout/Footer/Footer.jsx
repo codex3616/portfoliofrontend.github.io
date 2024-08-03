@@ -2,7 +2,7 @@ import styles from "./styles.module.scss";
 import { useRef } from "react";
 import logo from "../../../images/finial.webp";
 import { GoArrowDownLeft } from "react-icons/go";
-import { useScroll, motion, useTransform, useSpring } from "framer-motion";
+import { useScroll, motion, useTransform } from "framer-motion";
 import GsapMagnetic from "../MagneticBtn/GsapMagnetic";
 import RoundedButton from "../RoundedButton/RoundedButton";
 

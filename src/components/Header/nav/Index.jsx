@@ -55,7 +55,7 @@ const Index = ({ setIsActive, isActive }) => {
               <Link
                 key={index}
                 data={{ ...item, index, isActive, setIsActive }}
-                activeIndicator={selectedIndicator == item.href}
+                activeIndicator={selectedIndicator === item.href}
                 setSelectedIndicator={setSelectedIndicator}
               />
             );
