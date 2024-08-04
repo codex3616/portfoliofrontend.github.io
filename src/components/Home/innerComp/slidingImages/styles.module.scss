@@ -64,6 +64,11 @@
   }
 }
 
+@media (max-width: 799px) {
+  .slidingImages {
+    overflow: hidden;
+  }
+}
 @media (max-width: 720px) {
   .slidingImages {
     .slider {
@@ -83,7 +88,6 @@
 }
 @media (max-width: 520px) {
   .slidingImages {
-    overflow: hidden;
     padding-bottom: 1rem;
     .slider {
       width: 190vw;
