@@ -12,6 +12,7 @@ const anim = (variants) => ({
 
 const Curve = (props) => {
   const pathname = usePathname();
+  const isKnownRoute = ["/", "/about", "/contact", "/work"].includes(pathname);
 
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
@@ -66,7 +67,7 @@ const Curve = (props) => {
       />
       <motion.p {...anim(text)} className={styles.routeName}>
         <div className={styles.indicator}></div>
-        {pathname.slice(1)}
+        {isKnownRoute ? pathname.slice(1) : "Error"}
       </motion.p>
       {dimensions.width != null && <SVG {...dimensions} />}
       {props.children}

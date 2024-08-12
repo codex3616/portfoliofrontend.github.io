@@ -7,6 +7,7 @@ import Contact from "./components/Contact/Contact";
 import Work from "./components/Work/Work";
 import Header from "./components/Header/header/Index";
 import { AnimatePresence } from "framer-motion";
+import Error from "./components/Layout/ErrorPage/ErrorPage";
 
 const App = () => {
   const location = useLocation();
@@ -20,13 +21,13 @@ const App = () => {
   return (
     <>
       <Header />
-
       {isHomePage ? (
         <Routes location={location} key={location.pathname}>
           <Route index element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/work" element={<Work />} />
+          <Route path="/*" element={<Error />} />
         </Routes>
       ) : (
         <AnimatePresence mode="wait">
@@ -35,6 +36,7 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/work" element={<Work />} />
+            <Route path="/*" element={<Error />} />
           </Routes>
         </AnimatePresence>
       )}

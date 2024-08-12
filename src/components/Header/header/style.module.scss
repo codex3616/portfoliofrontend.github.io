@@ -1,8 +1,18 @@
+.headerBlack {
+  color: #ffffff !important;
+  a {
+    color: #ffffff !important;
+  }
+  .indicator {
+    background-color: #ffffff !important;
+  }
+}
+
 .header {
   position: absolute;
   top: 0;
-  color: white;
-  z-index: 1;
+  color: black;
+  z-index: 2;
   display: flex;
   justify-content: space-between;
   padding: 35px;
@@ -15,7 +25,6 @@
     display: flex;
     align-items: center;
     cursor: pointer;
-    color: black;
 
     p {
       margin: 0px;
@@ -258,7 +267,7 @@
           height: 5px !important;
           top: 21px !important;
           left: 1px !important;
-          background-color: red;
+          background-color: black;
           border-radius: 50%;
         }
       }
@@ -297,6 +306,12 @@
       }
     }
   }
+
+  .headerBlack {
+    .menuIndicator {
+      background-color: #ffffff !important;
+    }
+  }
 }
 
 @media (min-width: 200px) and (max-width: 319px) {
@@ -322,7 +337,7 @@
           height: 5px;
           top: 21px !important;
           left: -20px !important;
-          background-color: black;
+          // background-color: black;
           border-radius: 50%;
         }
       }

@@ -3,7 +3,7 @@ import styles from "./style.module.scss";
 import Nav from "../nav/Index";
 import { AnimatePresence } from "framer-motion"; // this is for nav exits animation
 import { FaRegCopyright } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import GsapMagnetic from "../../Layout/MagneticBtn/GsapMagnetic";
@@ -14,6 +14,13 @@ const Index = () => {
   const [isBurgerVisible, setIsBurgerVisible] = useState(false); // New state variable
   const [menuIsVisible, setMenuIsVisible] = useState(true);
   const burger = useRef(null);
+
+  const location = useLocation();
+
+  const isHomePage = location.pathname === "/";
+  const isAboutPage = location.pathname === "/about";
+  const isWorkPage = location.pathname === "/work";
+  const isContactPage = location.pathname === "/contact";
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -74,7 +81,13 @@ const Index = () => {
 
   return (
     <>
-      <div className={styles.header}>
+      <div
+        className={`${styles.header} ${
+          isHomePage || isAboutPage || isWorkPage || isContactPage
+            ? styles.test
+            : styles.headerBlack
+        }`}
+      >
         <GsapMagnetic>
           <div className={styles.logo}>
             <p className={styles.copyright}>

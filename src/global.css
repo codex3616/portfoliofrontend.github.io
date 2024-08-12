@@ -12,7 +12,6 @@ body {
   scroll-behavior: smooth;
   max-width: 100%;
   overflow-x: hidden;
-  cursor: wait;
 }
 
 .bg-dark {
