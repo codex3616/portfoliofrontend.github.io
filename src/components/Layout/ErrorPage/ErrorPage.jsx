@@ -1,10 +1,11 @@
 import Transition from "../PageTransition/Transition";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./styles.module.scss";
 import RoundedButton from "../RoundedButton/RoundedButton";
 import { Link } from "react-router-dom";
-import backgroundVideo from "../../../images/bgvideo2.mp4";
+import backgroundVideo from "../../../images/bgvideo.MP4";
 import { motion } from "framer-motion";
+import thumbnailImage from "../../../images/bgimg.png";
 
 const slideUp = {
   initial: {
@@ -12,24 +13,39 @@ const slideUp = {
   },
   enter: {
     y: 0,
-    transition: { duration: 0.6, ease: [0.33, 1, 0.68, 1], delay: 2.5 },
+    transition: { duration: 0.6, ease: [0.33, 1, 0.68, 1], delay: 0.6 },
   },
 };
 const ErrorPage = () => {
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
   const videoRef = useRef(null);
 
-  useEffect(() => {
-    // Start the video automatically when the component mounts
-    if (videoRef.current) {
-      videoRef.current.play();
-    }
-  }, []);
   const currentYear = new Date().getFullYear();
   const currentTime = new Date().toLocaleTimeString([], {
     hour: "2-digit",
     minute: "2-digit",
   });
 
+  useEffect(() => {
+    // Start loading the video in the background
+    const video = videoRef.current;
+    const handleVideoLoaded = () => {
+      setVideoLoaded(true); // Video is fully loaded
+    };
+
+    if (video) {
+      video.addEventListener("canplaythrough", handleVideoLoaded, {
+        once: true,
+      });
+    }
+
+    return () => {
+      if (video) {
+        video.removeEventListener("canplaythrough", handleVideoLoaded);
+      }
+    };
+  }, []);
   return (
     <>
       <Transition>
@@ -39,9 +55,18 @@ const ErrorPage = () => {
           initial="initial"
           animate="enter"
         >
+          {!videoLoaded && (
+            <img
+              src={thumbnailImage}
+              alt="Background Thumbnail"
+              className={styles.thumbnail}
+            />
+          )}
           <video
             ref={videoRef}
-            className={styles.backgroundVideo}
+            className={`${styles.backgroundVideo} ${
+              videoLoaded ? styles.visible : styles.hidden
+            }`}
             autoPlay
             loop
             muted

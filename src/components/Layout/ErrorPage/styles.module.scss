@@ -10,6 +10,11 @@
   // width: 100vw;
   overflow: hidden;
 
+  .thumbnail {
+    width: 100vw;
+    object-fit: cover;
+    height: 100%;
+  }
   .backgroundVideo {
     width: 100vw;
     // border: 2px solid red;

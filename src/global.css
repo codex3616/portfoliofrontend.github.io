@@ -14,6 +14,10 @@ body {
   overflow-x: hidden;
 }
 
+body::-webkit-scrollbar {
+  width: 0; /* For vertical scrollbar */
+  height: 0; /* For horizontal scrollbar */
+}
 .bg-dark {
   color: #1c1d20;
 }

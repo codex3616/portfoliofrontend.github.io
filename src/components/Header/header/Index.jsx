@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styles from "./style.module.scss";
 import Nav from "../nav/Index";
 import { AnimatePresence } from "framer-motion"; // this is for nav exits animation
@@ -79,6 +79,19 @@ const Index = () => {
     }
   };
 
+  // lock the body scroll when side nav is open...
+  useEffect(() => {
+    if (isActive) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    // Clean up the overflow on unmount
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isActive]);
   return (
     <>
       <div
