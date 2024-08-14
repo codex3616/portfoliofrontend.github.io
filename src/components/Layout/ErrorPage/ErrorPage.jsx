@@ -95,7 +95,7 @@ const ErrorPage = () => {
           <div className={styles.info}>
             <span>
               <h3>Version</h3>
-              <p>{currentYear} © Edition</p>
+              <p>{currentYear} © Akash ✌️</p>
             </span>
             <span>
               <h3>Local Time</h3>

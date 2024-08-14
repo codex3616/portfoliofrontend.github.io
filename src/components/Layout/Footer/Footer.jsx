@@ -47,19 +47,23 @@ export default function Footer() {
         </motion.div>
         <div className={styles.nav}>
           <RoundedButton>
-            <p>singhakash1922@gmail.com</p>
+            <a href="mailto:your-email@example.com">
+              <p>singhakash1922@gmail.com</p>
+            </a>
           </RoundedButton>
           <div className={styles.space}></div>
 
           <RoundedButton>
-            <p>+91 96 25 01 67 58</p>
+            <a href="tel:+1234567890">
+              <p>+91 9625016758</p>
+            </a>
           </RoundedButton>
         </div>
         <div className={styles.info}>
           <div>
             <span>
               <h3>Version</h3>
-              <p>{currentYear} © Edition</p>
+              <p>{currentYear} © Akash ✌️</p>
             </span>
             <span>
               <h3>Local Time</h3>
