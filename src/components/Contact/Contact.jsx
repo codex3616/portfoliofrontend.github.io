@@ -2,7 +2,7 @@ import React from "react";
 import Transition from "../Layout/PageTransition/Transition";
 import styles from "./styles.module.scss";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const slideUp = {
   initial: {
@@ -24,7 +24,6 @@ const Contact = () => {
           animate="enter"
         >
           <h1>Contact Page is under processing...</h1>
-          <Link to="/admin">error page..</Link>
         </motion.section>
       </Transition>
     </>

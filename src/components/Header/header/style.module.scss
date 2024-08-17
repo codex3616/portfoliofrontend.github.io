@@ -30,6 +30,7 @@
       margin: 0px;
       transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
       // font-size: 1.1rem;
+      font-family: "Kalam", cursive;
       font-weight: 600;
     }
 
@@ -75,10 +76,10 @@
           padding-left: 30px;
 
           .codeBy {
-            transform: translateX(-160%);
+            transform: translateX(-152%);
           }
           .akash {
-            transform: translateX(-98px);
+            transform: translateX(-88px);
           }
 
           .singh {
@@ -125,6 +126,7 @@
         cursor: pointer;
         text-decoration: none;
         color: black;
+
         font-weight: 600;
       }
     }

@@ -70,6 +70,7 @@ const ErrorPage = () => {
             autoPlay
             loop
             muted
+            playsInline
           >
             <source src={backgroundVideo} type="video/mp4" />
           </video>

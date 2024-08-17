@@ -30,6 +30,11 @@
     cursor: pointer;
     position: absolute;
     bottom: -5rem;
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
     p {
       // border: 2px solid red;
       z-index: 2;

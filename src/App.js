@@ -16,7 +16,7 @@ const App = () => {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
+  }, [location.pathname]);
 
   return (
     <>

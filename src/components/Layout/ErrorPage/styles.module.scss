@@ -10,18 +10,27 @@
   // width: 100vw;
   overflow: hidden;
 
-  .thumbnail {
-    width: 100vw;
-    object-fit: cover;
-    height: 100%;
-  }
+  .thumbnail,
   .backgroundVideo {
-    width: 100vw;
-    // border: 2px solid red;
-    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
+    object-fit: cover;
+    transition: opacity 0.6s ease;
   }
 
+  .thumbnail {
+    z-index: 1; /* Ensure thumbnail is on top initially */
+  }
+  .hidden {
+    opacity: 0;
+  }
+
+  .visible {
+    opacity: 1;
+  }
   .overlay {
     position: absolute;
     top: 0;

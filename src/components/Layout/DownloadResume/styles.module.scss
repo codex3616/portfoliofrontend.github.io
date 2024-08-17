@@ -1,0 +1,33 @@
+.resume {
+  width: 100vw;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //   border: 2px solid red;
+  background: linear-gradient(
+    45deg,
+    #455ce9,
+    #fffb00,
+    #00ffd5,
+    #7a00ff,
+    #ff00c8
+  );
+  background-size: 400% 400%;
+  animation: glowing 20s linear infinite;
+
+  @keyframes glowing {
+    0% {
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+  h4 {
+    margin: 0;
+  }
+}

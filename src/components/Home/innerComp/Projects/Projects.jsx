@@ -8,6 +8,7 @@ import BurgerZest from "../../../../images/burgerZest.png";
 import LoginApp from "../../../../images/login.png";
 import NoteTaking from "../../../../images/noteWave.png";
 import MovieInfo from "../../../../images/moveInfo.png";
+import { Link } from "react-router-dom";
 
 // need api data
 
@@ -156,9 +157,11 @@ const Projects = () => {
           })}
         </div>
         <RoundedButton className={styles.btn}>
-          <p>
-            More work <sup>2</sup>
-          </p>
+          <Link to="/work">
+            <p>
+              More work <sup>2</sup>
+            </p>
+          </Link>
         </RoundedButton>
         <motion.div
           ref={modalContainer}
