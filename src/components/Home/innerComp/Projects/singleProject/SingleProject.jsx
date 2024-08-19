@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./styles.module.scss";
+import { motion } from "framer-motion";
 
 const SingleProject = ({ index, title, manageModal, src, color }) => {
   return (
@@ -15,9 +16,12 @@ const SingleProject = ({ index, title, manageModal, src, color }) => {
           className={styles.project}
         >
           <div className={styles.modalContainer}>
-            <div className={styles.modal} style={{ backgroundColor: color }}>
+            <motion.div
+              className={styles.modal}
+              style={{ backgroundColor: color }}
+            >
               <img src={src} alt="img" />
-            </div>
+            </motion.div>
           </div>
           <div className={styles.text}>
             <h2>{title}</h2>

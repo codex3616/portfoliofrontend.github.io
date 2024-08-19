@@ -1,0 +1,45 @@
+.main {
+  // border: 2px solid red;
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+}
+
+.line {
+  height: 1px;
+  width: 100%;
+  position: relative;
+  margin-bottom: 20px;
+  /* border: 2px solid blue; */
+}
+
+/* line is a container and svg is a line of height 100px so that we can use height space for animation */
+.line svg {
+  width: 100%;
+  height: 100px;
+  // border: 2px solid black;
+  position: absolute;
+  top: -50px;
+  left: 1px;
+}
+
+.line svg path {
+  width: 100%;
+  stroke-width: 1.2px;
+  stroke: rgb(134, 134, 134);
+  fill: none;
+}
+
+.line .box {
+  height: 40px;
+  width: 100%;
+  /* border: 1px solid red; */
+  position: relative;
+  top: -20px;
+}
+/* now box is a container in which our line is placed at center */
+
+.line .box:hover {
+  height: 200px;
+  top: -75px;
+}

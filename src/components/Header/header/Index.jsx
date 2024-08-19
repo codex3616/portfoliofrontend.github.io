@@ -1,7 +1,12 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styles from "./style.module.scss";
 import Nav from "../nav/Index";
-import { AnimatePresence } from "framer-motion"; // this is for nav exits animation
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useTransform,
+} from "framer-motion"; // this is for nav exits animation
 import { FaRegCopyright } from "react-icons/fa6";
 import { Link, useLocation } from "react-router-dom";
 import gsap from "gsap";
@@ -20,7 +25,18 @@ const Index = () => {
   const isHomePage = location.pathname === "/";
   const isAboutPage = location.pathname === "/about";
   const isWorkPage = location.pathname === "/work";
-  const isContactPage = location.pathname === "/contact";
+
+  // ##################### for parallax
+  const container = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start start", "end start"],
+  });
+
+  const negY = useTransform(scrollYProgress, [0, 1], [0, -60]);
+
+  // ####################### Done
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -92,17 +108,19 @@ const Index = () => {
       document.body.style.overflow = "";
     };
   }, [isActive]);
+
   return (
     <>
       <div
         className={`${styles.header} ${
-          isHomePage || isAboutPage || isWorkPage || isContactPage
+          isHomePage || isAboutPage || isWorkPage
             ? styles.test
             : styles.headerBlack
         }`}
+        ref={container}
       >
         <GsapMagnetic>
-          <div className={styles.logo}>
+          <motion.div className={styles.logo} style={{ y: negY }}>
             <p className={styles.copyright}>
               <FaRegCopyright />
             </p>
@@ -111,12 +129,15 @@ const Index = () => {
                 <p className={styles.codeBy}>Code by</p>
                 <p className={styles.akash}>Akash</p>
                 <p className={styles.singh}>Singh</p>
+                <p className={styles.singh2} style={{ display: "none" }}>
+                  Singh
+                </p>
               </Link>
             </div>
-          </div>
+          </motion.div>
         </GsapMagnetic>
 
-        <div className={styles.nav}>
+        <motion.div className={styles.nav} style={{ y: negY }}>
           <GsapMagnetic>
             <div className={styles.el}>
               <Link to="/work">Work</Link>
@@ -152,7 +173,7 @@ const Index = () => {
               <div className={styles.menuIndicator}></div>
             </div>
           </GsapMagnetic>
-        </div>
+        </motion.div>
       </div>
 
       <div ref={burger} className={styles.headerButtonContainer}>

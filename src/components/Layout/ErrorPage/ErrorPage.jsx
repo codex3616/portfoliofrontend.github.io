@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import styles from "./styles.module.scss";
 import RoundedButton from "../RoundedButton/RoundedButton";
 import { Link } from "react-router-dom";
-import backgroundVideo from "../../../images/bgvideo.MP4";
+import backgroundVideo from "../../../images/bgvideo1.mp4";
 import { motion } from "framer-motion";
 import thumbnailImage from "../../../images/bgimg.png";
 

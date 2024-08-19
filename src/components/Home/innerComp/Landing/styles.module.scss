@@ -6,14 +6,19 @@
   background-color: #d8d8d8;
   // border: 2px solid black;
 
+  .imgContainer {
+    width: 100%;
+    height: 100vh;
+  }
   img {
     object-fit: cover;
     width: 100%;
+    height: 100vh;
   }
 
   .sliderContainer {
     position: absolute;
-    top: calc(100vh - 300px);
+    top: calc(100vh - 340px);
   }
 
   .slider {
@@ -29,7 +34,7 @@
     position: relative;
     margin: 0px;
     color: black;
-    font-size: 250px;
+    font-size: 240px;
     font-weight: 500;
     padding-right: 30px;
     opacity: 0.9;
@@ -98,7 +103,7 @@
       top: 45%;
       left: 7%;
       font-size: 21px;
-      color: black;
+      color: #000000;
 
       svg {
         width: 6px;
@@ -126,7 +131,6 @@
       top: 80%;
       left: 7%;
       font-size: 21px;
-      color: black;
 
       svg {
         width: 6px;

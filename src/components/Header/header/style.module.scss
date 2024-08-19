@@ -76,7 +76,7 @@
           padding-left: 30px;
 
           .codeBy {
-            transform: translateX(-152%);
+            transform: translateX(-154%);
           }
           .akash {
             transform: translateX(-88px);
@@ -93,7 +93,6 @@
   .nav {
     display: flex;
     align-items: center;
-    // border: 2px solid black;
 
     .el {
       display: flex;
@@ -126,8 +125,7 @@
         cursor: pointer;
         text-decoration: none;
         color: black;
-
-        font-weight: 600;
+        font-weight: 500;
       }
     }
   }
@@ -230,9 +228,17 @@
         a {
           transition: none;
           margin-left: 3px;
+          .codeBy {
+            display: none;
+          }
         }
         .singh {
           display: none;
+        }
+
+        .singh2 {
+          display: inline-block !important;
+          padding-left: 0.4em;
         }
       }
 
@@ -267,7 +273,7 @@
           position: absolute;
           width: 5px !important;
           height: 5px !important;
-          top: 21px !important;
+          top: 23px !important;
           left: 1px !important;
           background-color: black;
           border-radius: 50%;
@@ -300,7 +306,7 @@
           position: absolute;
           width: 6px;
           height: 6px;
-          top: 23px;
+          top: 24px;
           left: -1px;
           background-color: black;
           border-radius: 50%;
@@ -337,7 +343,7 @@
           position: absolute;
           width: 5px;
           height: 5px;
-          top: 21px !important;
+          top: 23px !important;
           left: -20px !important;
           // background-color: black;
           border-radius: 50%;

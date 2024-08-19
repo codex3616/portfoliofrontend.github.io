@@ -9,6 +9,7 @@ import LoginApp from "../../../../images/login.png";
 import NoteTaking from "../../../../images/noteWave.png";
 import MovieInfo from "../../../../images/moveInfo.png";
 import { Link } from "react-router-dom";
+import UseWindowWidth from "../../../Layout/windowHook/UseWindowWidth";
 
 // need api data
 
@@ -53,11 +54,11 @@ const projectList = [
 
 const Projects = () => {
   const [modal, setModal] = useState({ active: false, index: 0 });
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth); // added
   const { active, index } = modal;
   const modalContainer = useRef(null);
   const cursor = useRef(null);
   const cursorLabel = useRef(null);
+  const windowWidth = UseWindowWidth();
 
   let xMoveContainer = useRef(null);
   let yMoveContainer = useRef(null);
@@ -65,20 +66,6 @@ const Projects = () => {
   let yMoveCursor = useRef(null);
   let xMoveCursorLabel = useRef(null);
   let yMoveCursorLabel = useRef(null);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
-    // Cleanup listener on unmount
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   useEffect(() => {
     if (windowWidth > 720) {
@@ -152,6 +139,7 @@ const Projects = () => {
                 src={project.src}
                 manageModal={manageModal}
                 key={index}
+                windowWidth={windowWidth}
               />
             );
           })}

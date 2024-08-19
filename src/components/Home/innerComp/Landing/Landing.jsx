@@ -4,7 +4,8 @@ import styles from "./styles.module.scss";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import img from "../../../../images/finial.jpeg";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import UseWindowWidth from "../../../Layout/windowHook/UseWindowWidth";
 
 const slideUp = {
   initial: {
@@ -17,6 +18,7 @@ const slideUp = {
 };
 
 const Landing = () => {
+  const windowWidth = UseWindowWidth(); // custom hook...
   const container = useRef(null);
   const firstText = useRef(null);
   const secondText = useRef(null);
@@ -74,6 +76,13 @@ const Landing = () => {
 
   const posY = useTransform(scrollYProgress, [0, 1], [0, 100]);
   const negY = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const fastPosY = useTransform(scrollYProgress, [0, 1], [0, 150]);
+
+  // Apply a spring for smoother motion
+  const smoothFastPosY = useSpring(fastPosY, {
+    stiffness: 90,
+    damping: 10,
+  });
 
   // ####################### Done
   return (
@@ -85,14 +94,21 @@ const Landing = () => {
         ref={container}
         className={styles.landing}
       >
-        <motion.img src={img} alt="bgImg" style={{ y: posY }} />
-
-        <div className={styles.sliderContainer}>
+        <motion.div
+          style={windowWidth > 600 ? { y: posY } : { y: smoothFastPosY }}
+          className={styles.imgContainer}
+        >
+          <img src={img} alt="Akash avtar" />
+        </motion.div>
+        <motion.div
+          className={styles.sliderContainer}
+          style={{ y: windowWidth < 600 ? negY : 0 }}
+        >
           <div ref={slider} className={styles.slider}>
             <p ref={firstText}>Akash Singh -</p>
             <p ref={secondText}>Akash Singh -</p>
           </div>
-        </div>
+        </motion.div>
 
         <motion.div className={styles.description} style={{ y: negY }}>
           <svg

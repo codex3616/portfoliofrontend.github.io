@@ -7,7 +7,9 @@ import { Link } from "react-router-dom";
 
 const Description = () => {
   const container = useRef(null);
+  const para = useRef(null);
   const isInView = useInView(container); // checking our descrip page is in view or not
+  const paraIsInView = useInView(para);
 
   // ##################### for parallax
 
@@ -26,7 +28,7 @@ const Description = () => {
     <>
       <div className={styles.description} ref={container}>
         <div className={styles.body}>
-          <p>
+          <motion.p style={{ y: sm }}>
             {phrase.split(" ").map((word, idx) => {
               return (
                 <span className={styles.mask} key={idx}>
@@ -41,11 +43,12 @@ const Description = () => {
                 </span>
               );
             })}
-          </p>
+          </motion.p>
           <motion.p
+            ref={para}
             variants={opacity}
             initial="initial"
-            animate={isInView ? "open" : "closed"}
+            animate={paraIsInView ? "open" : "closed"}
           >
             The combination of my passion for design, code & interaction
             positions me in a unique place in the web design world.

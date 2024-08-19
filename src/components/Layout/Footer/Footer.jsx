@@ -47,15 +47,15 @@ export default function Footer() {
         </motion.div>
         <div className={styles.nav}>
           <RoundedButton>
-            <a href="mailto:your-email@example.com">
+            <a href="mailto:singhakash1922@gmail.com">
               <p>singhakash1922@gmail.com</p>
             </a>
           </RoundedButton>
           <div className={styles.space}></div>
 
           <RoundedButton>
-            <a href="tel:+1234567890">
-              <p>+91 9625016758</p>
+            <a href="tel:+919625016758">
+              <p>+91 96 25 01 67 58</p>
             </a>
           </RoundedButton>
         </div>
