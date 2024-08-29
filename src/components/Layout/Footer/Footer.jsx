@@ -2,7 +2,7 @@ import styles from "./styles.module.scss";
 import { useRef } from "react";
 import logo from "../../../images/finial.webp";
 import { GoArrowDownLeft } from "react-icons/go";
-import { useScroll, motion, useTransform } from "framer-motion";
+import { useScroll, motion, useTransform, useSpring } from "framer-motion";
 import GsapMagnetic from "../MagneticBtn/GsapMagnetic";
 import RoundedButton from "../RoundedButton/RoundedButton";
 import { Link } from "react-router-dom";
@@ -19,7 +19,17 @@ export default function Footer() {
     target: container,
     offset: ["start end", "end end"],
   });
-  const x = useTransform(scrollYProgress, [0, 1], [0, 150]);
+
+  const springConfig = {
+    damping: 100, // Higher damping to prevent oscillation
+    stiffness: 300, // Stiffer spring for quick, smooth stop
+    mass: 0.3, // Lower mass for quicker response
+  };
+
+  const x = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, 150]),
+    springConfig
+  );
   const y = useTransform(scrollYProgress, [0, 1], [-50, 0]);
   return (
     <div className={styles.footer} ref={container}>

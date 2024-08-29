@@ -1,7 +1,99 @@
 .about {
+  position: relative;
   width: 100vw;
-  height: 100vh;
+  // height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  // align-items: center;
+  background-color: #fafdff;
+  margin-bottom: 200vh;
+  overflow: hidden;
+
+  .landingText {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    // padding: 1rem;
+    margin-top: 7.7rem;
+    // background-color: aqua;
+    width: 100%;
+
+    .education {
+      font-size: 0.8rem;
+      border: 2px solid red;
+      margin: 0;
+    }
+
+    p,
+    h2 {
+      margin: 0;
+    }
+
+    h2 {
+      &:nth-of-type(1) {
+        margin-left: 2rem;
+      }
+      &:nth-of-type(2) {
+        font-size: 13vw;
+        border: 1px solid red;
+        text-transform: uppercase;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        display: inline-block;
+        font-family: "Edu VIC WA NT Beginner", cursive;
+        font-optical-sizing: auto;
+        // font-weight: 700;
+        width: fit-content;
+        // box-sizing: content-box;
+      }
+    }
+
+    .h2andp {
+      h2 {
+        border: 1px solid blue;
+        font-size: 7vw;
+        margin-left: 35%;
+        font-family: "Kalam", cursive;
+        width: fit-content;
+        height: fit-content;
+
+        // margin-top: -7rem;
+      }
+      p {
+        font-size: 2.5vw;
+        border: 2px solid green;
+        margin-left: 28%;
+        // margin-top: -3rem;
+        font-family: "Kalam", cursive;
+        width: fit-content;
+      }
+    }
+
+    .beauty {
+      border: 1px solid yellow;
+      font-size: 11vw;
+      margin-left: 7%;
+      // margin-top: -5rem;
+      font-family: "Edu VIC WA NT Beginner", cursive;
+      font-optical-sizing: auto;
+      width: fit-content;
+    }
+    .nature {
+      border: 1px solid gray;
+      display: flex;
+      gap: 20px;
+      font-size: 11vw;
+      align-items: center;
+      width: fit-content;
+      margin-left: 45%;
+      font-family: "Edu VIC WA NT Beginner", cursive;
+      font-optical-sizing: auto;
+      // margin-top: -6.5rem;
+
+      p {
+        font-size: 3rem;
+        font-family: "Kalam", cursive;
+      }
+    }
+  }
 }

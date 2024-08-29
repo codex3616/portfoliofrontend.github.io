@@ -8,6 +8,7 @@ import Work from "./components/Work/Work";
 import Header from "./components/Header/header/Index";
 import { AnimatePresence } from "framer-motion";
 import Error from "./components/Layout/ErrorPage/ErrorPage";
+import ScrollTop from "./components/Layout/scrollTop/ScrollTop";
 
 const App = () => {
   const location = useLocation();
@@ -21,6 +22,7 @@ const App = () => {
   return (
     <>
       <Header />
+      <ScrollTop />
       {isHomePage ? (
         <Routes location={location} key={location.pathname}>
           <Route index element={<Home />} />

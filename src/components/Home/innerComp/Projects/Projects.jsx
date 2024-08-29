@@ -4,7 +4,7 @@ import SingleProject from "./singleProject/SingleProject";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import RoundedButton from "../../../Layout/RoundedButton/RoundedButton";
-import BurgerZest from "../../../../images/burgerZest.png";
+import BurgerZest from "../../../../images/burger1.png";
 import LoginApp from "../../../../images/login.png";
 import NoteTaking from "../../../../images/noteWave.png";
 import MovieInfo from "../../../../images/moveInfo.png";
@@ -33,7 +33,7 @@ const projectList = [
   {
     title: " BurgerZest",
     src: BurgerZest,
-    color: "#000000",
+    color: "#ddd",
   },
   {
     title: " Login App",
@@ -43,7 +43,7 @@ const projectList = [
   {
     title: "MovieInfo",
     src: MovieInfo,
-    color: "#EFE8D3",
+    color: "#000000",
   },
   {
     title: " NoteTaking",

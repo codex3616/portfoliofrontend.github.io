@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #141516;
+  background-color: #1c1d20;
   position: relative;
   //   height: 100vh;
 
@@ -13,7 +13,7 @@
     padding-top: 80px;
     max-width: 1800px;
     width: 100%;
-    background-color: #141516;
+    background-color: #1c1d20;
 
     .title {
       border-bottom: 1px solid rgb(134, 134, 134);
@@ -49,7 +49,7 @@
       }
       .together {
         // border: 2px solid red;
-        margin-top: -15px;
+        margin-top: -35px;
         // padding-top: -4px;
       }
       .buttonContainer {
@@ -205,7 +205,7 @@
           font-size: 4rem;
         }
         .together {
-          margin-top: 0px;
+          margin-top: -20px;
         }
         .buttonContainer {
           position: absolute;
@@ -248,7 +248,7 @@
           font-size: 3.6rem;
         }
         .together {
-          margin-top: 0px;
+          margin-top: -15px;
         }
         .buttonContainer {
           position: absolute;
@@ -307,6 +307,12 @@
       .title {
         margin-left: 25px;
         margin-right: 25px;
+
+        .together {
+          // border: 2px solid red;
+          margin-top: -10px;
+          // padding-top: -4px;
+        }
 
         .imageContainer {
           width: 60px !important;
@@ -377,6 +383,12 @@
       .title {
         margin-left: 20px;
         margin-right: 20px;
+
+        .together {
+          // border: 2px solid red;
+          margin-top: 0px;
+          // padding-top: -4px;
+        }
         h2 {
           font-size: 2.5rem !important;
         }

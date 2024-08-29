@@ -1,12 +1,13 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Transition from "../Layout/PageTransition/Transition";
 import styles from "./styles.module.scss";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import img from "../../images/finial.jpeg";
 // import { Link } from "react-router-dom";
 import MagneticBtn from "../Layout/MagneticBtn/GsapMagnetic";
 import SmallFooter from "../Layout/Footer/SmallFooter";
 import VanillaLine from "../Layout/vanillaLine/VanillaLine";
+import { LuArrowDownLeft } from "react-icons/lu";
 
 const slideUp = {
   initial: {
@@ -18,8 +19,29 @@ const slideUp = {
   },
 };
 const Contact = () => {
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    organizationName: "",
+    service: "",
+    message: "",
+  });
   const submitHandler = (e) => {
     e.preventDefault();
+    setData({
+      name: "",
+      email: "",
+      organizationName: "",
+      service: "",
+      message: "",
+    });
+    console.log(data);
+  };
+
+  const handleChange = (e) => {
+    setData((preValue) => {
+      return { ...preValue, [e.target.name]: e.target.value };
+    });
   };
   // ##################### for parallax
   const target = useRef(null);
@@ -29,8 +51,18 @@ const Contact = () => {
     offset: ["start start", "end start"], // center of target and start of container means whole page(if target is whole container then 2nd argument is center of window).. end of target and start of container..
   });
 
+  const springConfig = {
+    damping: 100, // Higher damping to prevent oscillation
+    stiffness: 300, // Stiffer spring for quick, smooth stop
+    mass: 0.3, // Lower mass for quicker response
+  };
+
   const y = useTransform(scrollYProgress, [0, 1], [0, -250]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, -250]);
+  const smoothy = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, -250]),
+    springConfig
+  );
+  // const y2 = useTransform(scrollYProgress, [0, 1], [0, -250]);
 
   // ####################### Done
 
@@ -46,6 +78,7 @@ const Contact = () => {
           ref={target}
         >
           <motion.div style={{ y: y }} className={styles.text}>
+            <LuArrowDownLeft />
             <h3>
               <img src={img} alt="Akash avtar" />
               Let's start a{" "}
@@ -55,6 +88,7 @@ const Contact = () => {
           <div className={styles.body}>
             <div className={styles.info}>
               <motion.div style={{ y: y }} className={styles.imgContainer}>
+                <LuArrowDownLeft />
                 <img src={img} alt="akash avtar" />
                 <h2>Akash Singh ✌️</h2>
               </motion.div>
@@ -125,14 +159,21 @@ const Contact = () => {
             </div>
 
             <div className={styles.contactForm}>
-              <form onSubmit={submitHandler}>
+              <form onSubmit={submitHandler} autoComplete="off">
                 <div className={styles.line}>
                   <VanillaLine />
                 </div>
                 <div className={styles.div}>
                   <p>01</p>
 
-                  <input type="text" placeholder="john*" required />
+                  <input
+                    type="text"
+                    placeholder="john*"
+                    required
+                    name="name"
+                    value={data.name}
+                    onChange={handleChange}
+                  />
                   <label> What's your name ?</label>
                 </div>
                 <div className={styles.line}>
@@ -141,7 +182,14 @@ const Contact = () => {
 
                 <div className={styles.div}>
                   <p>02</p>
-                  <input type="email" placeholder="john@gmail.com*" required />
+                  <input
+                    type="email"
+                    placeholder="john@gmail.com*"
+                    required
+                    name="email"
+                    value={data.email}
+                    onChange={handleChange}
+                  />
                   <label> What's your email ?</label>
                 </div>
                 <div className={styles.line}>
@@ -153,6 +201,9 @@ const Contact = () => {
                     type="text"
                     placeholder="Indiviual or Organization*"
                     required
+                    name="organizationName"
+                    value={data.organizationName}
+                    onChange={handleChange}
                   />
                   <label> What's the name of your organization ?</label>
                 </div>
@@ -167,6 +218,9 @@ const Contact = () => {
                     type="text"
                     placeholder="Web design , Web devlopment... *"
                     required
+                    name="service"
+                    value={data.service}
+                    onChange={handleChange}
                   />
                   <label>What's services are you looking for ?</label>
                 </div>
@@ -180,11 +234,14 @@ const Contact = () => {
                     id="message"
                     placeholder="Hello Akash, need to contact for ...*"
                     required
+                    name="message"
+                    value={data.message}
+                    onChange={handleChange}
                   ></textarea>
                   <label for="message"> your message ?</label>
                 </div>
 
-                <motion.div style={{ y: y2 }}>
+                <motion.div style={{ y: smoothy }}>
                   <MagneticBtn>
                     <button type="submit">Send it!</button>
                   </MagneticBtn>

@@ -25,7 +25,10 @@ const SingleProject = ({ index, title, manageModal, src, color }) => {
           </div>
           <div className={styles.text}>
             <h2>{title}</h2>
-            <p>Design & Development</p>
+            <div className={styles.designAndYear}>
+              <p>Design & Development</p>
+              <p>2024</p>
+            </div>
           </div>
         </div>
       </div>

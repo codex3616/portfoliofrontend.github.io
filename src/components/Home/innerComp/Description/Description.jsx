@@ -1,6 +1,12 @@
 import React, { useRef } from "react";
 import styles from "./styles.module.scss";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useInView,
+  useScroll,
+  useTransform,
+  useSpring,
+} from "framer-motion";
 import { opacity, slideUp } from "./anim";
 import RoundedButton from "../../../Layout/RoundedButton/RoundedButton";
 import { Link } from "react-router-dom";
@@ -18,7 +24,17 @@ const Description = () => {
     offset: ["start center", "end start"],
   });
 
-  const sm = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const springConfig = {
+    damping: 100, // Higher damping to prevent oscillation
+    stiffness: 300, // Stiffer spring for quick, smooth stop
+    mass: 0.3, // Lower mass for quicker response
+  };
+
+  const sm = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const smoothsm = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, -100]),
+    springConfig
+  );
 
   // ####################### Done
   const phrase =
@@ -54,7 +70,10 @@ const Description = () => {
             positions me in a unique place in the web design world.
           </motion.p>
           <div>
-            <motion.div style={{ y: sm }} className={styles.buttonContainer}>
+            <motion.div
+              style={{ y: smoothsm }}
+              className={styles.buttonContainer}
+            >
               <RoundedButton className={styles.button}>
                 <Link to="/about">
                   <p>About me</p>

@@ -43,3 +43,9 @@
   height: 200px;
   top: -75px;
 }
+
+@media (max-width: 444px) {
+  .line svg path {
+    display: none;
+  }
+}
