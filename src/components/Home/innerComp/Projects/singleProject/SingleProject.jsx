@@ -3,9 +3,29 @@ import styles from "./styles.module.scss";
 import { motion } from "framer-motion";
 
 const SingleProject = ({ index, title, manageModal, src, color }) => {
+  // Define animation variants for left and right animations with delay
+  const variants = {
+    initial: { opacity: 0, x: index % 2 === 0 ? -100 : 100 },
+    inView: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.3,
+        delay: index * 0.1, // Adds a delay for each subsequent project
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
     <>
-      <div className={styles.single}>
+      <motion.div
+        className={styles.single}
+        initial="initial"
+        whileInView="inView"
+        variants={variants}
+        viewport={{ amount: 0.3 }} //can add once true for one time only... triggers animation when 30% of the component is in view
+      >
         <div
           onMouseEnter={(e) => {
             manageModal(true, index, e.clientX, e.clientY);
@@ -31,7 +51,7 @@ const SingleProject = ({ index, title, manageModal, src, color }) => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

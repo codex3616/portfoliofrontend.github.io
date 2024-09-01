@@ -4,7 +4,7 @@ import SingleProject from "./singleProject/SingleProject";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import RoundedButton from "../../../Layout/RoundedButton/RoundedButton";
-import BurgerZest from "../../../../images/burger1.png";
+import BurgerZest from "../../../../images/burger.png";
 import LoginApp from "../../../../images/login.png";
 import NoteTaking from "../../../../images/noteWave.png";
 import MovieInfo from "../../../../images/moveInfo.png";

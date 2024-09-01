@@ -1,9 +1,16 @@
 import React, { useRef, useEffect } from "react";
 import styles from "./styles.module.scss";
 
-import { useScroll, motion, useTransform, useSpring } from "framer-motion";
+import {
+  useScroll,
+  motion,
+  useTransform,
+  useSpring,
+  useInView,
+} from "framer-motion";
 import lazyImage from "./LazyImage";
 import UseWindowWidth from "../../../Layout/windowHook/UseWindowWidth";
+import { opacity } from "../Description/anim";
 
 // Import images
 import js from "./img/js.gif";
@@ -24,11 +31,15 @@ import bootstrap from "./img/bootstrap.JPG";
 // Slider data
 const slider1 = [sass, restApi, expressImg, html];
 const slider2 = [reactImg, js, nodeImg, bootstrap];
-const slider3 = [css, cPlusPlus, mongoDbImg, python];
+const slider3 = [css, mongoDbImg, python, cPlusPlus];
 
 const SlidingImages = () => {
   const container = useRef(null);
   const windowWidth = UseWindowWidth();
+  const para = useRef(null);
+  const para2 = useRef(null);
+  const paraIsInView = useInView(para);
+  const para2IsInView = useInView(para2);
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start end", "end start"],
@@ -76,7 +87,13 @@ const SlidingImages = () => {
       <div className={styles.overflow}>
         <main className={styles.main} ref={container}>
           <div className={`${styles.text} ${styles.text1}`}>
-            <motion.h3 style={{ y: windowWidth <= 500 ? x1 : x3 }}>
+            <motion.h3
+              style={{ y: windowWidth <= 500 ? x1 : x3 }}
+              ref={para}
+              variants={opacity}
+              initial="initial"
+              animate={paraIsInView ? "open" : "closed"}
+            >
               Start with something simple and small, then expand over time. If
               people call it a 'toy', you're definitely onto something...
             </motion.h3>
@@ -105,7 +122,13 @@ const SlidingImages = () => {
           </div>
 
           <div className={`${styles.text} ${styles.text2}`}>
-            <motion.h3 style={{ y: x2 }}>
+            <motion.h3
+              style={{ y: x2 }}
+              ref={para2}
+              variants={opacity}
+              initial="initial"
+              animate={para2IsInView ? "open" : "closed"}
+            >
               I am a curious person, living my dream freelance career, and
               keeping an eye on the future...
             </motion.h3>

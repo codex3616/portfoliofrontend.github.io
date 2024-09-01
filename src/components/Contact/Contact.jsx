@@ -8,16 +8,8 @@ import MagneticBtn from "../Layout/MagneticBtn/GsapMagnetic";
 import SmallFooter from "../Layout/Footer/SmallFooter";
 import VanillaLine from "../Layout/vanillaLine/VanillaLine";
 import { LuArrowDownLeft } from "react-icons/lu";
+import { slideUp } from "../anim";
 
-const slideUp = {
-  initial: {
-    y: 300,
-  },
-  enter: {
-    y: 0,
-    transition: { duration: 0.6, ease: [0.33, 1, 0.68, 1], delay: 0.7 },
-  },
-};
 const Contact = () => {
   const [data, setData] = useState({
     name: "",

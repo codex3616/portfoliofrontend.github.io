@@ -1,0 +1,148 @@
+.main {
+  background-color: #fafdff;
+  margin-bottom: 200vh; // margin to scroll
+  // border: 1px solid red;
+
+  .landingText {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    margin-top: 7rem;
+    width: 100%;
+
+    .education {
+      font-size: 0.8rem;
+      // border: 2px solid red;
+      margin: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    p,
+    h2 {
+      margin: 0;
+    }
+
+    .name {
+      display: flex;
+      align-items: center;
+      // border: 1px solid green;
+      width: fit-content;
+      height: fit-content;
+      gap: 1rem;
+      margin-left: 5vw;
+      h2 {
+        font-size: 11.5vw;
+        // border: 1px solid red;
+        // text-transform: uppercase;
+        padding: 0;
+        margin: 0;
+
+        display: inline-block;
+        width: fit-content;
+        font-family: "Edu VIC WA NT Beginner", cursive;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        letter-spacing: 2px;
+      }
+
+      // img {
+      //   object-fit: cover;
+      //   width: 15vw;
+      //   height: 15vw;
+      //   border-radius: 10rem;
+      //   mix-blend-mode: multiply;
+      //   background-color: #fafdff;
+      //   border: 1px solid #fafdff;
+      // }
+    }
+
+    .software {
+      // border: 1px solid yellow;
+      font-size: 10vw;
+      margin-left: 45%;
+      margin-top: 1vw;
+      width: fit-content;
+      font-family: "Kalam", cursive;
+      font-weight: 500;
+      font-style: normal;
+      max-height: 9rem;
+    }
+    .developer {
+      // border: 1px solid gray;
+      font-size: 11vw;
+      font-weight: 500;
+      // align-items: center;
+      width: fit-content;
+      margin-left: 15%;
+      font-family: "Edu VIC WA NT Beginner", cursive;
+      font-optical-sizing: auto;
+      max-height: 12rem;
+
+      margin-top: -1.7rem;
+
+      p {
+        font-size: 3rem;
+        font-family: "Kalam", cursive;
+      }
+    }
+
+    .delhi {
+      display: flex;
+      align-items: center;
+      // border: 2px solid blue;
+      width: fit-content;
+      margin-left: 38%;
+      gap: 0px;
+      max-height: 12rem;
+
+      h2 {
+        // border: 1px solid blue;
+        font-size: 10vw;
+        font-family: "Kalam", cursive;
+        letter-spacing: 5px;
+        font-weight: 500;
+        // margin-top: -7rem;
+      }
+      img {
+        object-fit: cover;
+        width: 9vw;
+        height: 10vw;
+        mix-blend-mode: multiply;
+        margin-top: -1rem;
+        // border: 2px solid brown;
+      }
+    }
+  }
+}
+
+@media (max-width: 1089px) {
+  .landingText {
+    .developer {
+      margin-top: -3.2rem !important;
+    }
+  }
+}
+@media (max-width: 600px) {
+  .landingText {
+    .software {
+      margin-left: 37% !important;
+      margin-top: 0 !important;
+    }
+    .developer {
+      margin-top: -6vw !important;
+    }
+    .delhi {
+      margin-left: 31% !important;
+    }
+  }
+}
+@media (max-width: 429px) {
+  .landingText {
+    padding: 0.5rem;
+
+    .name {
+      gap: 0.5rem;
+    }
+  }
+}

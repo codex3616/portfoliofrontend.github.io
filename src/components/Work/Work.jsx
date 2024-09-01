@@ -2,16 +2,7 @@ import React from "react";
 import Transition from "../Layout/PageTransition/Transition";
 import styles from "./styles.module.scss";
 import { motion } from "framer-motion";
-
-const slideUp = {
-  initial: {
-    y: 300,
-  },
-  enter: {
-    y: 0,
-    transition: { duration: 0.6, ease: [0.33, 1, 0.68, 1], delay: 0.7 },
-  },
-};
+import { slideUp } from "../anim";
 
 const Work = () => {
   return (
